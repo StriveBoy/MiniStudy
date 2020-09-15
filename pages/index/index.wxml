@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{!hasUserInfo}}">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+
+<view wx:else>
+  <swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    previous-margin="{{previousMargin}}" 
+    next-margin="{{nextMargin}}"
+    circular="{{circular}}"
+    bindchange="swiperBindchange"
+  >
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{currentSwiperIndex == index ? 'zoom-in' : 'zoom-out'}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="userInfo">
+    <view class="userIcon">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+</view>
