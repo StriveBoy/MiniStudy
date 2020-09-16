@@ -86,7 +86,6 @@ Page({
       data:{
         'avatarUrl': app.globalData.userInfo.avatarUrl,
         'nickName': app.globalData.userInfo.nickName,
-        'name': app.globalData.userInfo.nickName,
         'country': app.globalData.userInfo.country,
         'province': app.globalData.userInfo.province,
         'city': app.globalData.userInfo.city,

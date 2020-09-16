@@ -22,8 +22,9 @@ App({
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           success: function (res) {
+            console.log(res)
             if (res.data.errCode == 0) {
-              that.globalData.authorization = res.data.data
+              that.globalData.authorization = res.data.data.code
             } else {
               _show_error(res.data.errCode, res.data.errMsg)
             }
